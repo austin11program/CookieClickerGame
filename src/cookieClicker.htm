@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../javaScripts/cookieScripts.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie Clicker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: cursive;
+            overflow: visible;
+        }
+
+        .pointMenu {
+            background-color: rgb(245, 245, 220);
+            width: 100%;
+            height: 20vh;
+            text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3vw;
+            width: 60%;
+            padding: 0.5vw;
+            background-color: aquamarine;
+            border-radius: 5vw;
+            border: 5px solid black;
+        }
+
+        .action {
+            width: 60%;
+            float: left;
+            height: 80vh;
+        }
+
+        .bigCookie {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cookies {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .responsive-image {
+            width: 40vh;
+            height: 40vh;
+        }
+
+        .responsive-small {
+            width: 8vh;
+            height: 8vh;
+            opacity: 0%;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: 0;
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin {
+            animation-name: rotate;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes Cascade {
+            from {
+                transform: translateY(-300px);
+                opacity: 100%;
+            }
+
+            to {
+                transform: 0;
+                opacity: 0%;
+            }
+        }
+
+        .casade {
+            animation-name: Cascade;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+        }
+
+        .labelBox {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .labels {
+            text-align: center;
+            float: left;
+            margin: 1vw;
+            width: 20vw;
+            height: 10vw;
+            background-color: rgb(255, 161, 161);
+            padding: 3vw;
+            border-radius: 10vw;
+            border: 5px solid black;
+            font-size: 2vw;
+        }
+
+        .upgrades {
+            width: 40%;
+            background-color: aquamarine;
+            float: left;
+            height: 80vh;
+            border: 5px solid black;
+            border-radius: 5vw;
+            padding: 2%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 5%;
+        }
+
+        .upgrades a {
+            font-size: 2vw;
+            text-align: center;
+            flex-grow: 1;
+            background-color: lightgray;
+            border: 5px solid black;
+            margin-left: 5%;
+            margin-right: 5%;
+            border-radius: 5vw;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .action,
+            .upgrades {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+</html>
+
+<body style="background-color: beige; max-height: 100vw">
+    <div class="pointMenu">
+        <h1 id="points">Cookies 0</h1>
+    </div>
+
+    <div class="action">
+        <div class="bigCookie">
+            <img class="responsive-image spin" src="../indexMedia/COOKIEPIC.png"
+                onclick="addPoints(), startRotation()" />
+        </div>
+        <div class="cookies">
+            <img class="responsive-small" src="../indexMedia/COOKIEPIC.png" />
+            <img class="responsive-small" src="../indexMedia/COOKIEPIC.png" />
+            <img class="responsive-small" src="../indexMedia/COOKIEPIC.png" />
+            <img class="responsive-small" src="../indexMedia/COOKIEPIC.png" />
+            <img class="responsive-small" src="../indexMedia/COOKIEPIC.png" />
+            <img class="responsive-small" src="../indexMedia/COOKIEPIC.png" />
+        </div>
+        <div class="fallingCookie"></div>
+
+        <div class="labelBox">
+            <p id="money" class="labels">$0</p>
+            <p id="message" class="labels"></p>
+        </div>
+    </div>
+
+    <div class="upgrades">
+        <a style="background-color: rgb(255, 161, 161)" onclick="getMoney()">Trade Cookies</a>
+
+        <a id="invest" onclick="invest()">Investment Savings $500</a>
+        <a id="touch" onclick="moneyTouchFun()">Money Click $9K</a>
+        <a id="lott" onclick="lottery()" a>Lottery Click $50K</a>
+
+        <a id="thou" onclick="multiplier(1000)">Clicker 1000x cost $1000</a>
+        <a id="hen" onclick="multiplier(100)">Clicker 100x $100</a>
+        <a id="ten" onclick="multiplier(10)">Clicker 10x $10</a>
+    </div>
+</body>
